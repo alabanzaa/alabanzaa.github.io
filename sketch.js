@@ -410,7 +410,7 @@ function updateParagraphEffects() {
       config.nieve = false;
       config.rumor = false;
       config.sombra = false;
-      config.raiz = false; // También desactivar raíz
+      config.raiz = true; // También desactivar raíz
       break;
     case 7: // Párrafo 8: estela, cosas
       config.raiz = true; // Reactivar raíz
@@ -624,7 +624,7 @@ if (config.voce) {
   
   // Mostrar indicador del párrafo actual
   push();
-  fill(255, 100);
+  fill(255, 150);
   textSize(16);
   textAlign(LEFT, TOP);
   text(`${currentParagraph + 1} de ${paragraphs.length}`, 20, 20);
@@ -659,7 +659,7 @@ if (config.voce) {
     // Créditos en la esquina derecha de abajo
     textAlign(RIGHT, BOTTOM);
     textSize(12);
-    fill(255, 150);
+    fill(255, 200);
     text(`Alabanza (jardín florido) * Lola Langarica y Rodrigo Velasco`, width - 20, height - 20);
     
     pop();
