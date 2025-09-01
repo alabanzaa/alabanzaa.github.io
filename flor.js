@@ -29,7 +29,7 @@ function enesima() {
     //stroke(80, 47, 144, 180);
     strokeWeight(posZ2);  
   //fill(255, 255, 255, 70);
-   stroke(79, 256, 169, 90);
+   stroke(188, 176, 76, 60);
 
     // fill(255, 102);
 

@@ -78,9 +78,9 @@ let paragraphs = [
   
   // Párrafo 2: [El poema es] + miedo + piedras
   [
-    "[El poema es]",
     "el miedo que nos da recordar",
-    "lo que hemos descubierto jugando entre las piedras"
+    "lo que hemos descubierto",
+    "jugando entre las piedras"
   ],
   
   // Párrafo 3: recibir llamadas + puerta
@@ -120,9 +120,9 @@ let paragraphs = [
   
   // Párrafo 8: [el poema es] + estela + cosas
   [
-    "[el poema es]",
-    "esa estela también la prueba fehaciente de lo que",
-    "nos toca",
+    "esa estela también", 
+    "la prueba fehaciente",
+    "de lo que nos toca",
     "aunque extraviamos las cosas."
   ],
   
@@ -624,13 +624,14 @@ if (config.voce) {
   
   // Mostrar indicador del párrafo actual
   push();
-  fill(255, 150);
-  textSize(16);
+  fill(0);
+  textSize(20);
   textAlign(LEFT, TOP);
-  text(`${currentParagraph + 1} de ${paragraphs.length}`, 20, 20);
-  text(`Scrollea suavemente o utiliza las flechas para desplazarte`, 20, 40);
+  text(`[el poema es]`, 10, 20);
+  textSize(16);
+  fill(0, 120);
   if (isTransitioning) {
-    text(`${Math.round(paragraphTransition * 100)}%`, 20, 60);
+    text(`${Math.round(paragraphTransition * 100)}%`, 10, 60);
   }
   
   // Mostrar efectos activos del jardim-florido
