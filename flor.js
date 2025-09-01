@@ -1,3 +1,50 @@
+
+var num2 = 4933;
+
+var x2 = new Array([num2]);
+let y2 = new Array([num2]);
+var indexPosition2 = 0;
+
+
+function enesima() {
+    // Centrar en el área del texto
+    var centerX = width / 2;
+    var centerY = height / 2;
+    var textAreaWidth = 600; // Ancho del área del texto
+    var textAreaHeight = 400; // Alto del área del texto
+
+    var ruidoX2 = 0.00009;
+    var posX2 = centerX + (noise(millis() * ruidoX2) - 0.5) * textAreaWidth;
+
+    var ruidoY2 = 0.00002;
+    var posY2 = centerY + (noise(millis() * ruidoY2) - 0.5) * textAreaHeight;
+
+      var ruidoZ2 = -0.0001;
+    var posZ2 = 3 + noise(millis() * ruidoZ2) * 7; // Mínimo de 3 en lugar de 0
+  
+    x2[indexPosition2] = posX2;
+    y2[indexPosition2] = posY2;
+
+    // stroke(0);
+    //stroke(80, 47, 144, 180);
+    strokeWeight(posZ2);  
+  //fill(255, 255, 255, 70);
+   stroke(79, 256, 169, 90);
+
+    // fill(255, 102);
+
+    indexPosition2 = (indexPosition2 + 1) % num2;
+    for (var i = 0; i < num2; i++) {
+        var pos2 = (indexPosition2 + i) % num2;
+        var radius2 = 12 + (num2 - i) / 3.0; // Aumentado de 8 a 12 para mayor visibilidad
+        line(x2[pos2], y2[pos2], x2[pos2], y2[pos2]);
+
+
+    }
+
+}
+
+
 // kaleid_morado-blanco:giraluna - fall _ letra Q
 
 function fall() {
@@ -685,94 +732,46 @@ var angleInc = 0.001;
 
 
 function alcatraz() {
-    // Centrar en el área del texto
-    var centerX = width / 2;
-    var centerY = height / 2;
-    var textAreaWidth = 600; // Ancho del área del texto
-    var textAreaHeight = 400; // Alto del área del texto
 
-    var fog = millis() / 2009;
-    var between = random(30);
 
-    // Centrar la función en el área del texto
-    translate(centerX, centerY);
+                var fog = millis() / 2009;
+
+
+        var between = random(30);
+
+ translate(width/2, 0);
     angleInc += 0.0004;
 
-    var scale = 33; // Aumentado de 30 para que no se vea tan pequeña
-    var offset = 0; // Centrado
-    var angle = 1;
+ var scale = 50;
+ var offset = 500; // translate in y azis
+ var angle = 1;
 
-    var bruitC = 0.001;
-    var posC = noise(millis() * bruitC) * 6;
+ var bruitC = 0.001;
+ var posC = noise(millis() * bruitC) * 8;
 
-    var bruitD = 0.0001;
-    var posD = noise(millis() * bruitD) * 38;
+ var bruitD = 0.0001;
+ var posD = noise(millis() * bruitD) * 38;
 
-    var bruitX = 0.00001;
-    var posX = noise(millis() * bruitX) * (textAreaWidth / 2); // Limitado al área del texto
 
- // Limitar el bucle al área del texto
- for(var x = -textAreaWidth/2; x <= textAreaWidth/2; x+=posX){
+ var bruitX = 0.00001;
+ var posX = noise(millis() * bruitX) * 305;
+
+ for(var x = 0; x <= width; x+=posX){
     var y = offset + (sin(angle) * scale);
-    // Solo dibujar si está dentro del área del texto
-    if (abs(x) < textAreaWidth/2 && abs(y) < textAreaHeight/2) {
-        push();
-        noStroke();
-        fill(156, 227, 125, 70);
-        ellipse(x, y, posC, posC);
-        pop();
-    }
-    rotate(radians(fog));
+push();
+    noStroke();
+    fill(156, 227, 125);
+    ellipse(x, y, posC, posC);
+    pop();
+            rotate(radians(fog));
+
+
+
     angle += angleInc;
  }
 }
 
 
-
-var num2 = 1933;
-
-var x2 = new Array([num2]);
-let y2 = new Array([num2]);
-var indexPosition2 = 0;
-
-
-function enesima() {
-    // Centrar en el área del texto
-    var centerX = width / 2;
-    var centerY = height / 2;
-    var textAreaWidth = 600; // Ancho del área del texto
-    var textAreaHeight = 400; // Alto del área del texto
-
-    var ruidoX2 = 0.00009;
-    var posX2 = centerX + (noise(millis() * ruidoX2) - 0.5) * textAreaWidth;
-
-    var ruidoY2 = 0.00002;
-    var posY2 = centerY + (noise(millis() * ruidoY2) - 0.5) * textAreaHeight;
-
-      var ruidoZ2 = -0.0001;
-    var posZ2 = 3 + noise(millis() * ruidoZ2) * 7; // Mínimo de 3 en lugar de 0
-  
-    x2[indexPosition2] = posX2;
-    y2[indexPosition2] = posY2;
-
-    // stroke(0);
-    //stroke(80, 47, 144, 180);
-    strokeWeight(posZ2);  
-  //fill(255, 255, 255, 70);
-   stroke(79, 256, 169, 128);
-
-    // fill(255, 102);
-
-    indexPosition2 = (indexPosition2 + 1) % num2;
-    for (var i = 0; i < num2; i++) {
-        var pos2 = (indexPosition2 + i) % num2;
-        var radius2 = 12 + (num2 - i) / 3.0; // Aumentado de 8 a 12 para mayor visibilidad
-        line(x2[pos2], y2[pos2], x2[pos2], y2[pos2]);
-
-
-    }
-
-}
 
 // Funciones weft movidas desde weft.js
 function weft3() {
